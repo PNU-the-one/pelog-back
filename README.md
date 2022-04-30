@@ -2,9 +2,9 @@
 pelog's back
 
 환경
-Project : Gradle  Project
-Language : Java
-Spring Boot : 2.6.7
-Packaging : Jar
-Java : 11
+Project : Gradle  Project <br>
+Language : Java <br>
+Spring Boot : 2.6.7 <br>
+Packaging : Jar <br>
+Java : 11 <br>
 Dependencies : Spring Web, Thymeleaf
