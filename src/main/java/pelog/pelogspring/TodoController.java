@@ -2,10 +2,9 @@ package pelog.pelogspring;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class TodoController {
 
     @GetMapping("todo")
@@ -14,6 +13,11 @@ public class TodoController {
         Todo todo = new Todo();
         todo.setName("hi");
         return todo;
+    }
+
+    @PostMapping(value = "/list")
+    public TodoValue TodoList(@RequestBody TodoValue tv) {
+        return tv;
     }
 
     static class Todo {
@@ -25,6 +29,27 @@ public class TodoController {
 
         public void setName(String name) {
             this.name = name;
+        }
+    }
+
+    static class TodoValue {
+        private Integer id;
+        private String value;
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
         }
     }
 }
