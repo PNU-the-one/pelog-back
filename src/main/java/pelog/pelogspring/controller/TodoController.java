@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import pelog.pelogspring.domain.Todo;
 import pelog.pelogspring.service.TodoService;
 
+import java.util.List;
+
 @RestController
 public class TodoController {
 
@@ -23,10 +25,15 @@ public class TodoController {
         return todo;
     }
 
-    @PostMapping("/list")
+    @PostMapping("list")
     public Todo TodoList(@RequestBody Todo tv) {
         todoService.join(tv);
         return tv;
+    }
+
+    @GetMapping("todolist")
+    public List<Todo> list(){
+        return todoService.findTodo();
     }
 
     static class TodoJson {
